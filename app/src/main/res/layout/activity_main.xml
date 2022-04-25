@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.mediatorlivedataexample.MainViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <EditText
+            android:id="@+id/first_et"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="여기는 first LiveData용"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.082"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.078" />
+
+        <EditText
+            android:id="@+id/second_et"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="여기는 second LiveData용"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.079"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.176" />
+
+
+        <Button
+            android:id="@+id/first_save"
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="52dp"
+            android:textSize="12sp"
+            android:text="저장"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.286"
+            app:layout_constraintStart_toEndOf="@id/first_et"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:onClick="@{()->viewModel.onFirBtn()}"
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="52dp"
+
+            android:textSize="12sp"
+            android:text="입력"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/first_save"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/second_save"
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="120dp"
+            android:text="저장"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.103"
+            app:layout_constraintStart_toEndOf="@id/second_et"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <Button
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="120dp"
+            android:onClick="@{()->viewModel.onSecBtn()}"
+            android:text="입력"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.545"
+            app:layout_constraintStart_toEndOf="@+id/second_save"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rec"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="36dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/second_et"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
